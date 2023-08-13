@@ -14,7 +14,7 @@ const iconVariantsMap = {
   purple: defaultTheme['purple-300'],
 }
 
-export const IntroContainer = styled.div`
+export const IntroContainer = styled.section`
   display: flex;
   padding: 5.875rem 0;
   align-items: flex-start;
@@ -28,12 +28,10 @@ export const TitleContainer = styled.div`
   justify-content: flex-start;
 
   h1 {
-    font-size: 3rem;
-    font-weight: 800;
     margin-bottom: 1rem;
     text-align: justify;
     line-height: 3.5rem;
-    font-family: 'Baloo 2', sans-serif;
+    font: 800 3rem 'Baloo 2', sans-serif;
     text-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     color: ${(props) => props.theme['brown-900']};
   }

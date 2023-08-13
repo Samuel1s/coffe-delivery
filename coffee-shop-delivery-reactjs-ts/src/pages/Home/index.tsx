@@ -14,7 +14,7 @@ import { CoffeeContext } from '../../context/CoffeeContext'
 import { useContext } from 'react'
 import { CoffeeComponent } from './components/Coffee'
 
-export function Shopping() {
+export function Home() {
   const { coffeeDefaultList } = useContext(CoffeeContext)
 
   return (

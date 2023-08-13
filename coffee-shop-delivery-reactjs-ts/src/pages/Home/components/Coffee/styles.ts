@@ -17,9 +17,8 @@ export const CardContainer = styled.div`
   }
 
   h3 {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 700;
     margin-bottom: 0.5rem;
+    font: 700 'Baloo 2', sans-serif;
     color: ${(props) => props.theme['brown-700']};
   }
 
@@ -60,9 +59,7 @@ export const PriceContainer = styled.div`
   color: ${(props) => props.theme['brown-500']};
 
   span:last-child {
-    font-size: 1.625rem;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
+    font: 800 1.625rem 'Baloo 2', sans-serif;
   }
 `
 

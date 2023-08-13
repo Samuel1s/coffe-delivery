@@ -20,4 +20,4 @@ export const defaultTheme = {
   'yellow-100': '#f1e9c9',
   'yellow-300': '#dbac2c',
   'yellow-500': '#c47f17',
-}
+} as const
