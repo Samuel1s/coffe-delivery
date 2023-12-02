@@ -1,97 +1,88 @@
-import styled, { css } from 'styled-components'
-import { defaultTheme } from '../../styles/themes/default'
+import styled from 'styled-components'
 
-export type IconVariant = 'orange' | 'yellow' | 'brown' | 'purple'
+import { mixins } from '../../styles/mixins'
 
-interface IconContentProps {
-  variant: IconVariant
-}
+export const Hero = styled.section`
+  position: relative;
 
-const iconVariantsMap = {
-  orange: defaultTheme['yellow-500'],
-  yellow: defaultTheme['yellow-300'],
-  brown: defaultTheme['brown-500'],
-  purple: defaultTheme['purple-300'],
-}
+  img#hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 544px;
+    width: 100vw;
+    object-fit: cover;
+  }
+`
 
-export const IntroContainer = styled.section`
+export const HeroContent = styled.div`
+  max-width: 1160px;
+  padding: 92px 20px;
+  margin: 0 auto;
+
   display: flex;
-  padding: 5.875rem 0;
+  gap: 56px;
   align-items: flex-start;
   justify-content: space-between;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 66px;
+  }
 `
 
-export const TitleContainer = styled.div`
+export const Heading = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 4.125rem;
-  justify-content: flex-start;
+  gap: 16px;
 
-  h1 {
-    margin-bottom: 1rem;
-    text-align: justify;
-    line-height: 3.5rem;
-    font: 800 3rem 'Baloo 2', sans-serif;
-    text-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
-    color: ${(props) => props.theme['brown-900']};
+  > h1 {
+    ${mixins.fonts.titleXL}
+    color: ${({ theme }) => theme.colors['base-title']}
   }
 
-  h4 {
-    font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 1.625rem;
-    color: ${(props) => props.theme['brown-700']};
+  > span {
+    ${mixins.fonts.textL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
   }
 `
 
-export const ItemsDescriptionContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+export const Info = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
 
-  div {
-    width: 100%;
-  }
-`
-
-export const ItemDescriptionContainer = styled.div`
-  width: 100%;
-  gap: 0.75rem;
-  display: flex;
-  margin-bottom: 1.25rem;
-  align-items: center;
-  color: ${(props) => props.theme['brown-500']};
-`
-
-export const IconContainer = styled.span<IconContentProps>`
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 50%;
-
-  ${(props) => {
-    return css`
-      background-color: ${iconVariantsMap[props.variant]};
-      color: ${(props) => props.theme.white};
-    `
-  }}
-`
-
-export const CoffeeListContainer = styled.div`
-  padding: 2rem 0;
-
-  div {
+  > div {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 12px;
+
+    svg {
+      padding: 8px;
+      border-radius: 999px;
+    }
+  }
+`
+
+export const CoffeeList = styled.section`
+  max-width: 1160px;
+  padding: 32px 20px 150px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+
+  > h2 {
+    ${mixins.fonts.titleL}
+    color: ${({ theme }) => theme.colors['base-subtitle']}
   }
 
-  h1 {
-    font-weight: 800;
-    text-align: justify;
-    margin-bottom: 3.375rem;
-
-    font-family: 'Baloo 2', sans-serif;
-    color: ${(props) => props.theme['brown-700']};
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-column-gap: 32px;
   }
 `

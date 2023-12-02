@@ -1,23 +1,22 @@
 export const defaultTheme = {
-  white: '#FFF',
-  black: '#000',
-  background: '#fafafa',
+  colors: {
+    white: '#FFFFFF',
+    background: '#FAFAFA',
+    'base-card': '#F3F2F2',
+    'base-input': '#EDEDED',
+    'base-button': '#E6E6E5',
+    'base-hover': '#D7D5D5',
+    'base-label': '#8D8686',
+    'base-text': '#574F4D',
+    'base-subtitle': '#403937',
+    'base-title': '#272221',
 
-  'gray-100': '#f3f2f2',
-  'gray-200': '#ededed',
-  'gray-300': '#e6e5e5',
-  'gray-400': '#d7d5d5',
+    'purple-light': '#EBE5F9',
+    purple: '#8047F8',
+    'purple-dark': '#4B2995',
 
-  'brown-300': '#8d8686',
-  'brown-500': '#574f4d',
-  'brown-700': '#403937',
-  'brown-900': '#272221',
-
-  'purple-100': '#ebe5f9',
-  'purple-300': '#8047f8',
-  'purple-500': '#4b2995',
-
-  'yellow-100': '#f1e9c9',
-  'yellow-300': '#dbac2c',
-  'yellow-500': '#c47f17',
-} as const
+    'yellow-light': '#F1E9C9',
+    yellow: '#DBAC2C',
+    'yellow-dark': '#C47F17',
+  },
+}

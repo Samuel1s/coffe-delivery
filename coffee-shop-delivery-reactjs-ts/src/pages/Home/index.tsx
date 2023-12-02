@@ -1,79 +1,84 @@
-import {
-  IntroContainer,
-  ItemDescriptionContainer,
-  ItemsDescriptionContainer,
-  TitleContainer,
-  IconContainer,
-  CoffeeListContainer,
-} from './styles'
-
-import LogoCoffeeDelivery from '../../assets/Coffee-Delivery-Intro.svg'
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-
-import { CoffeeContext } from '../../context/CoffeeContext'
-import { useContext } from 'react'
-import { CoffeeComponent } from './components/Coffee'
+import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
+import { CoffeeList, Heading, Hero, HeroContent, Info } from './styles'
+import { useTheme } from 'styled-components'
+import { Card } from '../../components/Card'
+import { coffees } from '../../data'
 
 export function Home() {
-  const { coffeeDefaultList } = useContext(CoffeeContext)
+  const theme = useTheme()
 
   return (
-    <>
-      <IntroContainer>
-        <div>
-          <TitleContainer>
-            <h1>
-              Encontre o café perfeito <br></br> para qualquer hora do dia
-            </h1>
-            <h4>
-              Com o Coffee Delivery você recebe seu café onde estiver, a
-              qualquer hora
-            </h4>
-          </TitleContainer>
-          <ItemsDescriptionContainer>
-            <div>
-              <ItemDescriptionContainer>
-                <IconContainer variant="orange">
-                  <ShoppingCart size={24} weight="fill" />
-                </IconContainer>
+    <div>
+      <Hero>
+        <HeroContent>
+          <div>
+            <Heading>
+              <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+
+              <span>
+                Com o Coffee Delivery você recebe seu café onde estiver, a
+                qualquer hora
+              </span>
+            </Heading>
+
+            <Info>
+              <div>
+                <ShoppingCart
+                  size={32}
+                  weight="fill"
+                  color={theme.colors.background}
+                  style={{ backgroundColor: theme.colors['yellow-dark'] }}
+                />
                 <span>Compra simples e segura</span>
-              </ItemDescriptionContainer>
-              <ItemDescriptionContainer>
-                <IconContainer variant="yellow">
-                  <Timer size={24} weight="fill" />
-                </IconContainer>
-                <span>Entrega rápida e rastreada</span>
-              </ItemDescriptionContainer>
-            </div>
-            <div>
-              <ItemDescriptionContainer>
-                <IconContainer variant="brown">
-                  <Package size={24} weight="fill" />
-                </IconContainer>
+              </div>
+
+              <div>
+                <Package
+                  size={32}
+                  weight="fill"
+                  color={theme.colors.background}
+                  style={{ backgroundColor: theme.colors['base-text'] }}
+                />
                 <span>Embalagem mantém o café intacto</span>
-              </ItemDescriptionContainer>
-              <ItemDescriptionContainer>
-                <IconContainer variant="purple">
-                  <Coffee size={24} weight="fill" />
-                </IconContainer>
+              </div>
+
+              <div>
+                <Timer
+                  size={32}
+                  weight="fill"
+                  color={theme.colors.background}
+                  style={{ backgroundColor: theme.colors.yellow }}
+                />
+                <span>Entrega rápida e rastreada</span>
+              </div>
+
+              <div>
+                <Coffee
+                  size={32}
+                  weight="fill"
+                  color={theme.colors.background}
+                  style={{ backgroundColor: theme.colors.purple }}
+                />
                 <span>O café chega fresquinho até você</span>
-              </ItemDescriptionContainer>
-            </div>
-          </ItemsDescriptionContainer>
-        </div>
-        <img
-          src={LogoCoffeeDelivery}
-          alt="Logo on Intro section that means a coffee cup."
-        />
-      </IntroContainer>
-      <CoffeeListContainer>
-        <h1>Nossos cafés</h1>
+              </div>
+            </Info>
+          </div>
+
+          <img src="/images/hero.svg" alt="Café do Coffee Delivery" />
+        </HeroContent>
+
+        <img src="/images/hero-bg.svg" id="hero-bg" alt="" />
+      </Hero>
+
+      <CoffeeList>
+        <h2>Nossos cafés</h2>
+
         <div>
-          {coffeeDefaultList.map((coffee) => {
-            return <CoffeeComponent key={coffee.id} {...coffee} />
-          })}
+          {coffees.map((coffee) => (
+            <Card key={coffee.id} coffee={coffee} />
+          ))}
         </div>
-      </CoffeeListContainer>
-    </>
+      </CoffeeList>
+    </div>
   )
 }
